@@ -88,6 +88,9 @@ return {
       lspconfig.angularls.setup({
         capabilities = capabilities
       })
+      lspconfig.tailwindcss.setup({
+        capabilities = capabilities
+      })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to references" })

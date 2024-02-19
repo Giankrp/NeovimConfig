@@ -12,6 +12,10 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "roobert/tailwindcss-colorizer-cmp.nvim",
+      config = true,
+    },
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()

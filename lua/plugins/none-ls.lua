@@ -11,7 +11,6 @@ return {
       formatting.gofumpt,
       formatting.goimports,
       formatting.golines,
-      lint.eslint_d
     }
 
     null_ls.setup({sources = sources})

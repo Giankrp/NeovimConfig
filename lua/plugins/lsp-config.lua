@@ -70,7 +70,6 @@ return {
         capabilities = capabilities,
         settings = {
           gopls = {
-            usePlaceholders = true,
             analyses = {
               unusedparams = true,
             },

@@ -58,8 +58,26 @@ return {
       })
       lspconfig.tsserver.setup({
         capabilities = capabilities,
+        -- init_options = {
+        --   plugins = {
+        --     {
+        --       name = "@vue/typescript-plugin",
+        --       location = "/Users/gianr/AppData/Roaming/npm/node_modules/@vue/typescript-plugin",
+        --       languages = { "javascript", "typescript", "vue" },
+        --     },
+        --   },
+        -- },
+        -- filetypes = {
+        --   "javascript",
+        --   "typescript",
+        --   "vue",
+        -- },
         --         filetypes = {"vue"}
       })
+     
+      -- You must make sure volar is setup
+      -- e.g. require'lspconfig'.volar.setup{}
+      -- See volar's section for more information
       lspconfig.clangd.setup({
         capabilities = capabilities,
       })
@@ -87,6 +105,7 @@ return {
       })
       lspconfig.volar.setup({
         capabilities = capabilities,
+        -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
       })
       lspconfig.eslint.setup({
         capabilities = capabilities,

@@ -74,11 +74,15 @@ return {
         -- },
         --         filetypes = {"vue"}
       })
-     
+
       -- You must make sure volar is setup
       -- e.g. require'lspconfig'.volar.setup{}
       -- See volar's section for more information
       lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.crystalline.setup({
         capabilities = capabilities,
       })
       lspconfig.rust_analyzer.setup({
@@ -124,6 +128,9 @@ return {
         capabilities = capabilities,
       })
       lspconfig.tailwindcss.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.jdtls.setup({
         capabilities = capabilities,
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })

@@ -46,7 +46,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 scoop bucket add extras
 
 # 3. Install the entire environment (Core + Recommended tools)
-scoop install neovim git zig ripgrep fd nodejs-lts go lazygit
+scoop install neovim git zig ripgrep fd nodejs-lts go lazygit tree-sitter
 ```
 
 ## 📋 Requirements
@@ -55,6 +55,12 @@ scoop install neovim git zig ripgrep fd nodejs-lts go lazygit
 
 *   **Neovim >= 0.11.0**: This configuration uses the new native LSP APIs that are only available in recent versions.
 *   **C Compiler**: Required for `nvim-treesitter` to compile language parsers (e.g., `gcc`, `clang`, or `zig`).
+*   **tree-sitter-cli**: Required by `nvim-treesitter` for parser generation and compilation.
+    *   *How to install*:
+        *   **npm**: `npm install -g tree-sitter-cli`
+        *   **Scoop (Windows)**: `scoop install tree-sitter`
+        *   **Homebrew (macOS)**: `brew install tree-sitter`
+        *   **Cargo**: `cargo install tree-sitter-cli`
 *   **Base Tools**: `git`, `curl`, `unzip`, `tar`, `gzip` (needed by Mason to download and install servers).
 
 ### Optional (Recommended for the best experience)

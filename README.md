@@ -5,10 +5,19 @@ Una configuración de Neovim moderna, modular y ultrarrápida, basada en la nuev
 ## 🚀 Instalación
 
 Para instalar esta configuración, clona este repositorio en tu carpeta de configuración de Neovim:
-
+Linux / MacOS
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git ~/.config/nvim
+git clone https://github.com/Giankrp/NeovimConfig ~/.config/nvim
 ```
+Windows (PowerShell - Recomendado)
+```bash
+git clone https://github.com/Giankrp/NeovimConfig $env:LOCALAPPDATA\nvim
+```
+Windows (cmd)
+```bash
+git clone https://github.com/Giankrp/NeovimConfig %LOCALAPPDATA%\nvim
+```
+
 
 Luego, simplemente abre Neovim:
 
@@ -16,8 +25,24 @@ Luego, simplemente abre Neovim:
 nvim
 ```
 
-La configuración detectará automáticamente los plugins y herramientas faltantes a través de Mason y los instalará en el primer arranque.
+# Configuración Express en Windows (Recomendado)
 
+Si estás en Windows, la forma más limpia y rápida de instalar Neovim y todas las dependencias necesarias de este README (compiladores, buscadores y entornos) es usando [Scoop](https://scoop.sh/).
+La configuración detectará automáticamente los plugins y herramientas faltantes a través de Mason y los instalará en el primer arranque.
+> [!WARNING]
+> Revisar el script de instalacion de Scoop siempre en la documentación (el link esta justo en el texto de arriba) por si el script de instalación cambia.
+# Ejecutar en PowerShell
+```bash
+# 1. Instalar Scoop (si no lo tienes)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+# 2. Agregar los repositorios necesarios
+scoop bucket add extras
+
+# 3. Instalar TODO el entorno de golpe (Core + Opcionales)
+scoop install neovim git zig ripgrep fd nodejs-lts go lazygit
+```
 ## 📋 Requisitos
 
 ### Obligatorios (Core)

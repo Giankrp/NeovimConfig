@@ -40,6 +40,7 @@ require('snacks').setup {
         cmd = 'colorscript -e square',
         height = 5,
         padding = 1,
+        enabled = function() return vim.fn.executable('colorscript') == 1 end,
       },
       { section = 'keys', gap = 1, padding = 1 },
       { pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
@@ -64,6 +65,9 @@ require('snacks').setup {
   lazygit = { enabled = true }, -- Git terminal UI (replaces lazygit.nvim)
   input = { enabled = true }, -- Beautiful floating input box (for LSP rename, etc.)
   select = { enabled = true }, -- Beautiful floating select box (for LSP code actions, etc.)
+  bufdelete = { enabled = true }, -- Delete buffers without disrupting layout
+  gitbrowse = { enabled = true }, -- Open current file/line in git web interface
+  scratch = { enabled = true }, -- Persistent scratch buffers
   picker = {
     enabled = true,
     actions = {
@@ -126,6 +130,16 @@ vim.keymap.set('n', '<leader>s/', function() Snacks.picker.grep { buffers = true
 
 -- Search Neovim config files
 vim.keymap.set('n', '<leader>sn', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = '[S]earch [N]eovim files' })
+
+-- Buffer Delete (without breaking layouts)
+vim.keymap.set('n', '<leader>bd', function() Snacks.bufdelete() end, { desc = '[B]uffer [D]elete' })
+
+-- Git Browse (open current file/lines on GitHub/GitLab/etc.)
+vim.keymap.set({ 'n', 'x' }, '<leader>gb', function() Snacks.gitbrowse() end, { desc = '[G]it [B]rowse' })
+
+-- Scratch Buffers (persistent quick notes / scratchpads)
+vim.keymap.set('n', '<leader>bs', function() Snacks.scratch() end, { desc = '[B]uffer [S]cratch toggle' })
+vim.keymap.set('n', '<leader>bS', function() Snacks.scratch.select() end, { desc = '[B]uffer [S]cratch select' })
 
 -- ── LSP Pickers on LspAttach ──────────────────────────────────────────────────
 vim.api.nvim_create_autocmd('LspAttach', {

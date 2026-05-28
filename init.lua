@@ -26,6 +26,6 @@ require 'plugins.treesitter' -- syntax highlighting and indentation
 -- ── Optional extras (uncomment to enable) ────────────────────────────────────
 require 'plugins.extras.gitsigns' -- extended git hunk keymaps
 require 'plugins.extras.autopairs' -- auto-close brackets and quotes
-require 'plugins.extras.opencode' -- Bridge Neovim and OpenCode AI
+require 'plugins.extras.opencode' -- Bridge Neovim and OpenCode AI (See warning in config if on Windows)
 -- require 'plugins.extras.flutter'     -- Flutter/Dart development tools
 -- require 'plugins.extras.debug'        -- DAP debugger (Go + extensible)

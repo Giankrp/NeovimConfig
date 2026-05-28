@@ -1,5 +1,11 @@
 -- Bridge Neovim and OpenCode AI
 -- See https://github.com/nickjvandyke/opencode.nvim
+--
+-- WARNING (Windows/PowerShell):
+-- Spawning the OpenCode server automatically in Windows can cause significant lag.
+-- If you experience performance issues, run the server manually in an external terminal:
+--   opencode --port 3000
+-- And uncomment the `server` config option below.
 
 local function gh(repo) return 'https://github.com/' .. repo end
 
@@ -8,6 +14,9 @@ vim.pack.add { gh 'nickjvandyke/opencode.nvim' }
 -- Configuration options
 vim.g.opencode_opts = {
   lsp = { enabled = true }, -- Enable experimental LSP for hover and code actions
+  -- server = {
+  --   url = "http://127.0.0.1:3000", -- Run 'opencode --port 3000' in external shell
+  -- }
 }
 
 -- Required for automatic buffer reloading after AI edits

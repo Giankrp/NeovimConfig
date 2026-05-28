@@ -5,6 +5,12 @@ local function gh(repo) return 'https://github.com/' .. repo end
 
 vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
+-- Force to use gcc on Windows
+if vim.fn.has("win32") == 1 then
+  vim.env.CC = "gcc"
+  require("nvim-treesitter.install").compilers = { "gcc" }
+end
+
 -- Core parsers to install at startup
 local parsers = {
   'bash', 'c', 'diff', 'html', 'lua', 'luadoc',

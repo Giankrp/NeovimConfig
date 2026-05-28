@@ -95,7 +95,8 @@ vim.pack.add {
 require('mason').setup {}
 
 -- Prepend Mason bin path to Neovim PATH
-vim.env.PATH = vim.fn.stdpath 'data' .. '/mason/bin:' .. vim.env.PATH
+local path_sep = vim.fn.has 'win32' == 1 and ';' or ':'
+vim.env.PATH = vim.fn.stdpath 'data' .. '/mason/bin' .. path_sep .. vim.env.PATH
 
 local ensure_installed = vim.tbl_keys(servers)
 vim.list_extend(ensure_installed, tools)

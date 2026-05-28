@@ -1,6 +1,6 @@
 return {
-    -- Configuración para tailwindcss
-    -- Ver :help vim.lsp.config para opciones disponibles
+    -- Configuration for tailwindcss
+    -- See :help vim.lsp.config for available options
     settings = {
         tailwindCSS = {
             experimental = {

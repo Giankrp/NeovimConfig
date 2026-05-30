@@ -36,8 +36,11 @@ none_ls.setup {
         to_stdin = true,
       },
     },
+
+    b.formatting.goimports_reviser,
     -- Diagnostics (Linters)
     b.diagnostics.markdownlint, -- Requires mason tool: markdownlint
+    b.diagnostics.golangci_lint,
 
     -- Code Actions
     b.code_actions.gitsigns,
